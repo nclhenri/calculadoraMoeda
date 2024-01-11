@@ -48,14 +48,19 @@ public class MainActivity extends AppCompatActivity {
                 RadioGroup grupoOpcoes = findViewById(R.id.radioGroup);
                 int opcaoSelecionada = grupoOpcoes.getCheckedRadioButtonId();
 
+                double valorConvertido;
+
                 if (opcaoSelecionada == R.id.euro){
-                    double valorConvertido = Double.parseDouble(valorInput.getText().toString()) * 5.35; // oq foi digitado no campo e passou para double
+                    valorConvertido = Double.parseDouble(valorInput.getText().toString()) * 5.35; // oq foi digitado no campo e passou para double
 
                 } else if (opcaoSelecionada == R.id.libra) {
-
+                    valorConvertido = Double.parseDouble(valorInput.getText().toString()) * 6.22;
                 }else{
-
+                    valorConvertido = Double.parseDouble(valorInput.getText().toString()) * 4.87;
                 }
+
+                resultado.setText(String.valueOf(valorConvertido));
+                resultado.setVisibility(View.VISIBLE); // vai alterar de invisivel para visivel o resultado
             }
 
         });
